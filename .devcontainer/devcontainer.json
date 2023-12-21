@@ -47,8 +47,9 @@
 			"bungcip.better-toml",
 			"eamodio.gitlens",
 			"github.vscode-pull-request-github",
-			"visualstudioexptteam.vscodeintellicode"
-		  ]
+			"visualstudioexptteam.vscodeintellicode",
+			"GitHub.copilot"
+		]
 		}
 	  },
 
@@ -58,9 +59,15 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "poetry install --no-root",
 
+	
 	"runArgs": [
 		"-v", "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock"
-	]	
+	],
+
+	"containerEnv": {
+		"SSH_AUTH_SOCK": "/run/host-services/ssh-auth.sock"
+	}
+	
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
